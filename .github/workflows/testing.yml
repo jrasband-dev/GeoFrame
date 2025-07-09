@@ -29,16 +29,16 @@ jobs:
 
     - name: Run Pylint
       run: |
-        pylint polars_extensions || true
+        pylint geoframe || true
           
     - name: Run Flake8
       run: |
-        flake8 polars_extensions || true
+        flake8 geoframe || true
 
     - name: Run MyPy
       run: |
-        mypy polars_extensions || true
+        mypy geoframe || true
 
     - name: Run Bandit
       run: |
-        bandit -r polars_extensions || true
+        bandit -r geoframe || true
