@@ -39,3 +39,27 @@ class GeoFrame:
 
     def get_crs(self):
         return self.crs
+    
+
+    def with_columns(self, *args, **kwargs):
+        new_df = self.df.with_columns(*args, **kwargs)
+        return GeoFrame(
+            df=new_df,
+            coordinates_column=self.coordinates_column,
+            wkt_column=getattr(self, 'wkt_column', None),
+            raw=self.raw,
+            read_format=self.read_format,
+            crs=self.crs
+        )
+
+    # Optionally, override other methods similarly:
+    def select(self, *args, **kwargs):
+        new_df = self.df.select(*args, **kwargs)
+        return GeoFrame(
+            df=new_df,
+            coordinates_column=self.coordinates_column,
+            wkt_column=getattr(self, 'wkt_column', None),
+            raw=self.raw,
+            read_format=self.read_format,
+            crs=self.crs
+        )
