@@ -189,25 +189,6 @@ class GeoJSON:
             'type': self.type,
             'features': self.features
         }
-    
-    def to_dataframe(self) -> pd.DataFrame:
-        data = pd.json_normalize(self.to_dict(), record_path=['features'])
-        return data
-    
-    def filter_geojson(self, property_values: List[str], property_key: str) -> 'GeoJSON':
-        '''
-        Filters GeoJSON features based on values in properties object.
-
-        :return: GeoJSON
-        '''
-        # for feature in self.features:
-        #     print(feature)
-
-        filtered_features = []
-        for feature in self.features:
-            if feature['properties'].get(property_key) in property_values:
-                filtered_features.append(feature)  
-        return GeoJSON(type='FeatureCollection', features=filtered_features)
 
     def to_geoarrow(self) -> GeoArrow:
         print("Current Features:", self.features)  # Debugging output

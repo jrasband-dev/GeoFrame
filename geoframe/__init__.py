@@ -2,6 +2,7 @@ from .geojson import *
 from .geoarrow import *
 from .geoparquet import *
 from .io import *
+from .geoframe import GeoFrame
 
 
 __all__ = [
@@ -10,4 +11,5 @@ __all__ = [
     ,'GeoParquet'
     ,'read_geojson'
     ,'read_parquet'
+    ,'GeoFrame'
 ]
