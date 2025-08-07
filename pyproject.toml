@@ -1,14 +1,17 @@
 [project]
 name = "geoframe"
-version = "0.1.0"
-description = "Geospatial File Management"
+version = "0.2.0"
+description = "Geospatial Data Management"
 readme = "README.md"
 authors = [
     {name = "Jayden Rasband", email = "jayden.rasband@gmail.com"}
 ]
 license = {text = "MIT"}
 classifiers = []
-dependencies = ["polars-extensions"]
+dependencies = [
+    "fastkml>=1.1.0",
+    "polars-extensions",
+]
 
 
 [project.urls]
