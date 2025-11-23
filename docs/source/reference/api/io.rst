@@ -12,7 +12,7 @@ GeoJSON
    write_geojson
 
 Parquet
-~~~
+~~~~~~~
 .. autosummary::
    :toctree: api/
 
