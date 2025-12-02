@@ -1,12 +1,23 @@
 ============
 Input/output
 ============
+
 .. currentmodule:: geoframe
+
+
+GeoArrow
+~~~~~~~~
+.. autosummary::
+   :toctree: io
+
+
+   read_geoarrow
 
 GeoJSON
 ~~~~~~~
 .. autosummary::
-   :toctree: api/
+   :toctree: io
+
 
    read_geojson
    write_geojson
@@ -14,7 +25,7 @@ GeoJSON
 Parquet
 ~~~~~~~
 .. autosummary::
-   :toctree: api/
+   :toctree: io
 
    read_parquet
-   write_parquet
+

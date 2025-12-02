@@ -1,7 +1,11 @@
 GeoFrame
 ===========
 
-.. toctree::
-    :maxdepth: 1
+.. currentmodule:: geoframe
 
+.. autoclass:: GeoFrame
+    :members:
+    :noindex:
+    :autosummary:
+    :autosummary-nosignatures:
 

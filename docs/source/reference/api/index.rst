@@ -2,7 +2,6 @@ API Reference
 =============
 
 
-
 .. grid::
 
    .. grid-item-card::
@@ -19,12 +18,6 @@ API Reference
 
          io
 
-   .. grid-item-card::
-
-      .. toctree:: 
-         :maxdepth: 1
-
-         expressions/index
    
 
    

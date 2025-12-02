@@ -6,9 +6,6 @@ Polars Extensions provides you with additional functionality within polars. This
 Installation
 ------------
 
-.. code-block:: python
-    
-    pip install polars-extensions
 
 
 What is a GeoFrame?
