@@ -11,5 +11,5 @@ pip install -r requirements-docs.txt
 
 ```cmd
 cd docs
-sphinx-build source build
+sphinx-build -vvv source build
 ```
