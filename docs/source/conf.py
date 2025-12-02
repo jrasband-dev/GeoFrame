@@ -28,7 +28,7 @@ logging.basicConfig(
 
 # -- Path setup --------------------------------------------------------------
 
-sys.path.insert(0, str(Path("../..").resolve()))
+sys.path.insert(0, str(Path("../../").resolve()))
 
 
 # -- Project information -----------------------------------------------------
@@ -83,11 +83,15 @@ exclude_patterns = ["Thumbs.db", ".DS_Store"]
 overloads_location = ["bottom"]
 language = 'python'
 
+# -- Handling Imports -------------------------------------------------
+doctest_test_doctest_blocks = False
+
+
+
 
 # -- Options for HTML output -------------------------------------------------
 
 
-html_theme = 'alabaster'
 html_static_path = ['_static']
 
 # -- Options for HTML output -------------------------------------------------
@@ -109,8 +113,8 @@ web_root = "https://jrasband-dev.github.io/geoframe/"
 asset_root = "https://raw.githubusercontent.com/jrasband-dev/geoframe/main"
 
 # Specify version for version switcher dropdown menu
-git_ref = os.environ.get("METRIC_FORGE_VERSION", "main")
-version_match = re.fullmatch(r"py-(\d+)\.\d+\.\d+.*", git_ref)
+git_ref = os.environ.get("GEOFRAME_VERSION", "main")
+version_match = re.fullmatch(r"(\d+)\.\d+\.\d+.*", git_ref)
 switcher_version = version_match.group(1) if version_match is not None else "dev"
 
 # html_js_files = [
@@ -135,7 +139,7 @@ html_theme_options = {
         },
         {
             "name": "Pypi",
-            "url": "https://pypi.org/project/polars-extensions/",
+            "url": "https://pypi.org/project/geoframe/",
             "icon": "fa-brands fa-python",
         },
         {
@@ -236,23 +240,3 @@ def linkcode_resolve(domain: str, info: dict[str, Any]) -> str | None:
     fn = os.path.relpath(fn, start=project_root)
     return f"{github_root}/blob/{git_ref}/geoframe/{fn}{linespec}"
 
-
-def process_signature(  # noqa: D103
-    app: object,
-    what: object,
-    name: object,
-    obj: object,
-    opts: object,
-    sig: str,
-    ret: str,
-) -> tuple[str, str]:
-    logging.debug(f'process_sig: {sig}')
-    logging.debug(f'return_sig: {ret}')
-    return (
-        _minify_classpaths(sig) if sig else sig,
-        _minify_classpaths(ret) if ret else ret,
-    )
-
-
-def setup(app: Any) -> None:  # noqa: D103
-    app.connect("autodoc-process-signature", process_signature)
