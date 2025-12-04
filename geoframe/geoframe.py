@@ -1,8 +1,8 @@
 from .geojson import GeoJSON
 from .geoparquet import GeoParquet
 from .geoarrow import GeoArrow
-from fastkml import KML
 import polars as pl
+import polars_extensions as plx
 
 
 class GeoFrame:
@@ -10,8 +10,8 @@ class GeoFrame:
                  ,df: pl.DataFrame
                  ,coordinates_column: str = 'geometry'
                  ,wkt_column: str = None
-                 ,raw: GeoJSON|GeoParquet|GeoArrow|KML = None
-                 ,read_format: str = None
+                 ,raw: GeoJSON|GeoParquet|GeoArrow= None
+                   ,read_format: str = None
                  ,crs: str = None):
         # if geometry_column not in df.columns:
         #     raise ValueError(f"'{geometry_column}' not found in DataFrame columns")
@@ -36,9 +36,6 @@ class GeoFrame:
     # Optional: set a new CRS
     def set_crs(self, new_crs: str):
         self.crs = new_crs
-
-    def get_crs(self):
-        return self.crs
     
 
     def with_columns(self, *args, **kwargs):

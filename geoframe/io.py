@@ -8,9 +8,9 @@ import pyarrow.parquet as pq
 import pyarrow.feather as pf
 from shapely import wkb, wkt
 import pyarrow as pa
-from fastkml.utils import find, find_all
-from fastkml import KML
-from fastkml import Placemark
+# from fastkml.utils import find, find_all
+# from fastkml import KML
+# from fastkml import Placemark
 import polars as pl
 
 
@@ -20,7 +20,14 @@ unpack_features = pl.col('geometry').struct.unnest(), pl.col('properties').struc
 
 
 def read_geojson(file_path: str) -> GeoFrame:
-    """Reads a GeoJSON file and returns a GeoFrame object."""
+    """
+    Opens a GeoJSON File as a GeoFrame.
+
+    Examples
+    --------
+    
+    """
+
     with open(file_path) as response:
         geo_json_data = json.load(response)
         data = pl.DataFrame(geo_json_data)
@@ -85,6 +92,15 @@ def read_geojson_url(url: str) -> GeoJSON:
 
 
 def read_geoarrow(file_path: str, geometry_format: str ='wkb') -> GeoFrame:
+    """
+    Opens a GeoArrow File as a GeoFrame.
+
+    Examples
+    --------
+    
+    """
+
+
     arrow_table = pf.read_table(file_path)    
     if geometry_format == 'wkb':
         gdf = GeoFrame(
